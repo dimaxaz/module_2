@@ -1,17 +1,18 @@
-def get_matrix(n, m, value):
-    matrix = []
+def find_pairs(n):
+    result = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            row.append(value)
-        matrix.append(row)
+    for x in range(1, 21):
+        for y in range(1, 21):
+            if n % (x + y) == 0:
+                result.append((x, y))
+    return result
 
-    return matrix
-
-result1 = get_matrix(2, 2, 10)
-result2 = get_matrix(3, 5, 42)
-result3 = get_matrix(4, 2, 13)
-print(result1)
-print(result2)
-print(result3)
+# Ввод числа от 3 до 20
+n = int(input("Введите число от 3 до 20: "))
+if 3 <= n <= 20:
+    pairs = find_pairs(n)
+    print("Найденные пары (x, y), для которых n кратно (x + y):")
+    for pair in pairs:
+        print(pair)
+else:
+    print("Число должно быть в диапазоне от 3 до 20!")
