@@ -3,9 +3,12 @@ primes = []
 not_primes = []
 
 for num in numbers:
+    if num == 1:  # Skip the number 1
+        continue
+
     is_prime = True
 
-    if num <= 1:
+    if num < 2:
         is_prime = False
 
     for i in range(2, int(num ** 0.5) + 1):
